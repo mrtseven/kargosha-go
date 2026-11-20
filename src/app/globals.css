@@ -82,6 +82,139 @@
   }
 }
 
+/* ── پس‌زمینه سینمایی لوگو (همه انیمیشن‌ها فقط transform/opacity) ── */
+.logo-aura {
+  pointer-events: none;
+  animation: kg-fade-in 1.1s ease-out both;
+}
+.logo-aura > * {
+  position: absolute;
+}
+
+/* هسته درخشان مرکزی */
+.aura-core {
+  inset: 12%;
+  border-radius: 9999px;
+  background: radial-gradient(
+    closest-side,
+    rgba(57, 230, 192, 0.26),
+    rgba(100, 139, 255, 0.13) 55%,
+    transparent
+  );
+  filter: blur(14px);
+  animation: kg-glow 6s ease-in-out infinite;
+}
+
+/* سحابی چرخان */
+.aura-nebula {
+  inset: -8%;
+  border-radius: 9999px;
+  background: conic-gradient(
+    from 0deg,
+    rgba(57, 230, 192, 0),
+    rgba(57, 230, 192, 0.2) 12%,
+    transparent 26%,
+    rgba(100, 139, 255, 0.2) 40%,
+    transparent 55%,
+    rgba(155, 123, 255, 0.16) 72%,
+    transparent 88%,
+    rgba(57, 230, 192, 0.1)
+  );
+  filter: blur(26px);
+  opacity: 0.8;
+  animation: kg-spin 20s linear infinite;
+}
+
+/* جاروی نور سینمایی */
+.aura-sweep {
+  inset: 4%;
+  border-radius: 9999px;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(245, 248, 255, 0.09) 14deg,
+    transparent 34deg
+  );
+  filter: blur(12px);
+  animation: kg-spin 13s linear infinite reverse;
+}
+
+/* قوس‌های مداری */
+.aura-orbit {
+  inset: 0;
+  animation: kg-spin 16s linear infinite;
+}
+.aura-orbit.o2 {
+  animation-duration: 24s;
+  animation-direction: reverse;
+}
+.aura-orbit.o3 {
+  animation-duration: 9s;
+}
+
+/* حلقه‌های سونار */
+.aura-ring {
+  inset: 18%;
+  border-radius: 9999px;
+  border: 1px solid rgba(57, 230, 192, 0.4);
+  opacity: 0;
+  animation: kg-pulse-ring 5s cubic-bezier(0.25, 0.6, 0.3, 1) infinite;
+}
+.aura-ring.r2 {
+  border-color: rgba(100, 139, 255, 0.35);
+  animation-delay: 2.5s;
+}
+
+/* جرقه‌های شناور */
+.aura-spark {
+  width: 4px;
+  height: 4px;
+  border-radius: 9999px;
+  opacity: 0;
+  animation: kg-spark 6.5s ease-in-out infinite;
+}
+
+@keyframes kg-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes kg-pulse-ring {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+
+@keyframes kg-spark {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateY(6px) scale(0.6);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translateY(-10px) scale(1);
+  }
+}
+
+@keyframes kg-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 /* احترام به کاهش حرکت: صفحه کاملاً قابل استفاده می‌ماند */
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -96,6 +229,16 @@
   .floaty,
   .floaty-slow {
     animation: none;
+  }
+  .logo-aura,
+  .logo-aura * {
+    animation: none !important;
+  }
+  .aura-ring {
+    display: none;
+  }
+  .aura-spark {
+    opacity: 0.45;
   }
 }
 
