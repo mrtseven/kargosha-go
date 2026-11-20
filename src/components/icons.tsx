@@ -83,3 +83,23 @@ export function ChevronDownIcon(props: IconProps) {
     </svg>
   );
 }
+
+export function SpeakerOnIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M11 5 6 9H3v6h3l5 4V5Z" />
+      <path d="M15.5 8.5a5 5 0 0 1 0 7" />
+      <path d="M18 6a9 9 0 0 1 0 12" />
+    </svg>
+  );
+}
+
+export function SpeakerOffIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M11 5 6 9H3v6h3l5 4V5Z" />
+      <path d="m16 9 5 5" />
+      <path d="m21 9-5 5" />
+    </svg>
+  );
+}

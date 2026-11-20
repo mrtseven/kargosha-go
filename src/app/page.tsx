@@ -5,6 +5,7 @@ import ActionButtons from "@/components/ActionButtons";
 import CopyLinkButton from "@/components/CopyLinkButton";
 import BrowserHelp from "@/components/BrowserHelp";
 import Footer from "@/components/Footer";
+import BackgroundMusic from "@/components/BackgroundMusic";
 import { siteConfig } from "@/lib/config";
 
 export default function HomePage() {
@@ -37,6 +38,8 @@ export default function HomePage() {
         <BrowserHelp />
         <Footer />
       </main>
+
+      <BackgroundMusic />
     </>
   );
 }
