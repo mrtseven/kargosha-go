@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #080d1b;
+    background-image:
+      radial-gradient(56rem 40rem at 88% -12%, rgba(100, 139, 255, 0.16), transparent 62%),
+      radial-gradient(50rem 36rem at -8% 18%, rgba(57, 230, 192, 0.12), transparent 60%),
+      radial-gradient(46rem 34rem at 50% 118%, rgba(155, 123, 255, 0.12), transparent 64%);
+    background-attachment: fixed;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: rgba(57, 230, 192, 0.28);
+  }
+}
+
+@layer utilities {
+  /* ورود نرم عناصر (فقط CSS؛ با prefers-reduced-motion خاموش می‌شود) */
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    animation: kg-fade-up 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .reveal-1 { animation-delay: 0.05s; }
+  .reveal-2 { animation-delay: 0.14s; }
+  .reveal-3 { animation-delay: 0.22s; }
+  .reveal-4 { animation-delay: 0.3s; }
+  .reveal-5 { animation-delay: 0.38s; }
+  .reveal-6 { animation-delay: 0.46s; }
+
+  .halo {
+    animation: kg-glow 5.5s ease-in-out infinite;
+  }
+  .floaty {
+    animation: kg-float 11s ease-in-out infinite;
+  }
+  .floaty-slow {
+    animation: kg-float 16s ease-in-out infinite reverse;
+  }
+}
+
+@keyframes kg-fade-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes kg-glow {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.07);
+  }
+}
+
+@keyframes kg-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+/* احترام به کاهش حرکت: صفحه کاملاً قابل استفاده می‌ماند */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .halo,
+  .floaty,
+  .floaty-slow {
+    animation: none;
+  }
+}
+
+/* نشانگر پیش‌فرض details را حذف می‌کنیم (چیورون خودمان را داریم) */
+summary::-webkit-details-marker {
+  display: none;
+}

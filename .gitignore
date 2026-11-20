@@ -1,0 +1,18 @@
+# وابستگی‌ها
+/node_modules
+
+# بیلد نکست
+/.next/
+/out/
+next-env.d.ts
+
+# محیط
+.env
+.env.local
+.env.*.local
+
+# لاگ و متفرقه
+*.log
+.DS_Store
+*.tsbuildinfo
+.vercel
