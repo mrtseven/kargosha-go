@@ -1,9 +1,9 @@
 import Image from "next/image";
 
-/** بخش اصلی: لوگو با هاله درخشان + تیتر + زیرتیتر + متن معرفی */
+/** بخش اصلی: فقط لوگو با هاله درخشان — تیتر برای سئو و صفحه‌خوان‌ها پنهان است (صفحه کوتاه) */
 export default function HeroSection() {
   return (
-    <section className="mt-9 flex flex-col items-center text-center sm:mt-12">
+    <section className="mt-8 flex flex-col items-center text-center sm:mt-10">
       <div className="relative">
         {/* هاله نور پشت لوگو — صرفاً تزئینی */}
         <div
@@ -14,24 +14,13 @@ export default function HeroSection() {
           priority
           src="/images/kargosha-logo.png"
           alt="لوگوی کارگشا"
-          width={132}
-          height={132}
-          sizes="(max-width: 640px) 112px, 132px"
-          className="reveal reveal-1 relative h-auto w-28 sm:w-32"
+          width={144}
+          height={144}
+          sizes="(max-width: 640px) 128px, 144px"
+          className="reveal reveal-1 relative h-auto w-32 sm:w-36"
         />
       </div>
-
-      <h1 className="reveal reveal-2 mt-6 text-[clamp(1.8rem,7.2vw,2.5rem)] font-black leading-[1.3] text-ink">
-        کارگشا؛ دنیایی از ابزارهای هوشمند
-      </h1>
-
-      <p className="reveal reveal-3 mt-3 bg-gradient-to-l from-accent to-accent2 bg-clip-text text-lg font-bold text-transparent">
-        همه ابزارهایی که نیاز داری، در یک اپلیکیشن
-      </p>
-
-      <p className="reveal reveal-3 mt-3 max-w-sm text-[15px] leading-7 text-muted">
-        نسخه اندروید کارگشا را دانلود کن یا مستقیماً وارد نسخه وب شو.
-      </p>
+      <h1 className="sr-only">کارگشا؛ دنیایی از ابزارهای هوشمند</h1>
     </section>
   );
 }

@@ -6,7 +6,7 @@ import { ChevronDownIcon } from "./icons";
  */
 export default function BrowserHelp() {
   return (
-    <details className="reveal reveal-6 group mt-8 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04]">
+    <details className="reveal reveal-4 group mt-7 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04]">
       <summary className="flex cursor-pointer select-none list-none items-center justify-between gap-3 px-5 py-4 text-[15px] font-bold text-ink transition-colors hover:bg-white/[0.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent">
         اگر لینک باز نشد چه کار کنم؟
         <ChevronDownIcon className="h-5 w-5 shrink-0 text-muted transition-transform duration-200 group-open:rotate-180" />

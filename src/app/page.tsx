@@ -25,7 +25,7 @@ export default function HomePage() {
         {siteConfig.mainSiteUrl ? (
           <section
             aria-label="کپی لینک کارگشا"
-            className="reveal reveal-5 mt-5 flex items-center justify-center gap-3"
+            className="reveal reveal-3 mt-4 flex items-center justify-center gap-3"
           >
             <span dir="ltr" className="select-all text-sm text-muted">
               https://kar-gosha.ir

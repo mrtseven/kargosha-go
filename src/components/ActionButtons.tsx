@@ -10,9 +10,7 @@ const BTN_PRIMARY = `${BTN} bg-[linear-gradient(100deg,#39E6C0,#648BFF)] text-[#
 
 const BTN_SECONDARY = `${BTN} border border-white/10 bg-white/[0.06] text-ink hover:border-white/20 hover:bg-white/[0.09]`;
 
-const BTN_GHOST = `${BTN} border border-white/10 bg-transparent text-muted hover:bg-white/[0.05] hover:text-ink`;
-
-function DisabledButton({ icon, label }: { icon: ReactNode; label: string }) {
+function DisabledButton({ icon, label }: { icon?: ReactNode; label: string }) {
   return (
     <div className={`${BTN_PRIMARY} cursor-not-allowed opacity-55`} aria-disabled="true">
       {icon}
@@ -21,14 +19,22 @@ function DisabledButton({ icon, label }: { icon: ReactNode; label: string }) {
   );
 }
 
-/** سه دکمه اصلی: ورود به نسخه وب، دانلود اندروید، سایت اصلی */
+/** سه دکمه اصلی: ورود به کارگشا (لندینگ)، نسخه وب، دانلود اپلیکیشن */
 export default function ActionButtons() {
   const { webAppUrl, androidDownloadUrl, mainSiteUrl } = siteConfig;
 
   return (
-    <section aria-label="دسترسی‌های اصلی" className="reveal reveal-5 mt-8 flex flex-col gap-3">
+    <section aria-label="دسترسی‌های اصلی" className="reveal reveal-3 mt-6 flex flex-col gap-3">
+      {mainSiteUrl ? (
+        <a href={mainSiteUrl} className={BTN_PRIMARY}>
+          <span>ورود به کارگشا</span>
+        </a>
+      ) : (
+        <DisabledButton label="ورود به کارگشا" />
+      )}
+
       {webAppUrl ? (
-        <a href={webAppUrl} target="_blank" rel="noopener noreferrer" className={BTN_PRIMARY}>
+        <a href={webAppUrl} target="_blank" rel="noopener noreferrer" className={BTN_SECONDARY}>
           <GlobeIcon className="h-5 w-5" />
           <span>ورود به نسخه وب</span>
         </a>
@@ -40,7 +46,7 @@ export default function ActionButtons() {
         <>
           <a href={androidDownloadUrl} className={BTN_SECONDARY}>
             <AndroidIcon className="h-5 w-5" />
-            <span>دانلود اپلیکیشن اندروید</span>
+            <span>دانلود اپلیکیشن</span>
             <DownloadIcon className="h-5 w-5 opacity-70" />
           </a>
           <p className="-mt-1.5 text-center text-xs text-muted/80">
@@ -49,19 +55,11 @@ export default function ActionButtons() {
         </>
       ) : (
         <>
-          <DisabledButton icon={<AndroidIcon className="h-5 w-5" />} label="دانلود اپلیکیشن اندروید" />
+          <DisabledButton icon={<AndroidIcon className="h-5 w-5" />} label="دانلود اپلیکیشن" />
           <p className="-mt-1.5 text-center text-xs text-muted/80">
             لینک دانلود به‌زودی از این صفحه فعال می‌شود
           </p>
         </>
-      )}
-
-      {mainSiteUrl ? (
-        <a href={mainSiteUrl} className={BTN_GHOST}>
-          <span>مشاهده سایت اصلی کارگشا</span>
-        </a>
-      ) : (
-        <DisabledButton icon={<span>مشاهده سایت اصلی کارگشا</span>} label="" />
       )}
     </section>
   );

@@ -8,7 +8,7 @@ function toFa(value: number | string): string {
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="mt-12 border-t border-white/[0.08] pb-2 pt-6 text-center">
+    <footer className="mt-10 border-t border-white/[0.08] pb-2 pt-6 text-center">
       <div className="flex items-center justify-center gap-2.5 text-sm">
         {siteConfig.mainSiteUrl ? (
           <>

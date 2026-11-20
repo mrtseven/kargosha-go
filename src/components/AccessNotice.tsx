@@ -8,7 +8,7 @@ export default function AccessNotice() {
   return (
     <section
       aria-labelledby="access-notice-title"
-      className="reveal reveal-4 mt-9 rounded-2xl border border-warn/25 bg-warn/[0.07] p-4 sm:p-5"
+      className="reveal reveal-2 mt-7 rounded-2xl border border-warn/25 bg-warn/[0.07] p-4 sm:p-5"
     >
       <div className="flex gap-3.5">
         <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-warn/10 text-warn">
